@@ -4,19 +4,16 @@ import Aux from '../../../hoc/Aux/Aux';
 import Button from '../../UI/Button/Button';
 
 const orderSummary = props => {
-  // CONVERT TO CLASS COMPONENT TO USE LIFECYCLE METHODS FOR DEBUGGING
-  // componentWillUpdate() {
-  //   console.log('Order Summary update');
-  // }
-  const ingredientSummary = Object.keys(props.ingredients)
-    .map(ingKey => {
-      return <li key={ingKey}>
-        <span style={{textTransform: 'capitalize'}}>
-          {ingKey}
-        </span>: {props.ingredients[ingKey]}
+  const ingredientSummary = Object.keys(props.ingredients).map(ingKey => {
+    return (
+      <li key={ingKey}>
+        <span style={{ textTransform: 'capitalize' }}>{ingKey}</span>:{' '}
+        {props.ingredients[ingKey]}
       </li>
-    });
-  return <Aux>
+    );
+  });
+  return (
+    <Aux>
       <h3>Your Order</h3>
       <p>A delicious burger with the following ingredients:</p>
       <ul>{ingredientSummary}</ul>
@@ -30,7 +27,8 @@ const orderSummary = props => {
       <Button btnType="Success" clicked={props.purchaseContinued}>
         CONTINUE
       </Button>
-    </Aux>;
-}
+    </Aux>
+  );
+};
 
 export default orderSummary;

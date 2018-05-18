@@ -24,7 +24,6 @@ class Layout extends Component {
   };
 
   render() {
-    console.log('layout props:', this.props);
     return (
       <Aux>
         <div>

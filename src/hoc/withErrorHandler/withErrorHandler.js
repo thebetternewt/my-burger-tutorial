@@ -21,7 +21,6 @@ const withErrorHandler = (WrappedComponent, axios) => {
       this.resInterceptor = axios.interceptors.response.use(
         res => res,
         err => {
-          // console.log(err);
           this.setState({ error: err });
         }
       );
@@ -29,7 +28,6 @@ const withErrorHandler = (WrappedComponent, axios) => {
 
     // Remove global error interceptors before component unmounts
     componentWillUnmount() {
-      // console.log('Will Unmount', this.reqInterceptor, this.resInterceptor);
       axios.interceptors.request.eject(this.reqInterceptor);
       axios.interceptors.response.eject(this.resInterceptor);
     }
